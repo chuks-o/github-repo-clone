@@ -66,6 +66,7 @@ export default {
 <style>
 .home {
   width: 100%;
+  position: relative;
 }
 .home__nav {
   margin-top: 24px;

@@ -1,9 +1,14 @@
 <template>
-  <div class="prompt prompt--bg mt-4">
+  <div class="prompt prompt--bg mt-4" ref="prompt">
     <div class="prompt--innerbg prompt__innerbg--padding">
       <div class="prompt--body">
         <div class="prompt__dismiss">
-          <a class="prompt__dismiss--text" href="#">Dismiss</a>
+          <a
+            class="prompt__dismiss--text"
+            @click.prevent="dismissBlock"
+            href="javascript:;"
+            >Dismiss</a
+          >
         </div>
         <h3 class="pt-2">Create your own GitHub profile</h3>
         <p class="prompt__paragraph">
@@ -12,7 +17,7 @@
         </p>
 
         <div class="prompt__cta">
-          <form-button value="Sign up" btnClass="btn--primary ft-14" />
+          <form-button value="Sign up" btn-class="btn--primary ft-14" />
         </div>
       </div>
     </div>
@@ -24,6 +29,12 @@ import FormButton from "./form/FormButton.vue";
 export default {
   components: {
     FormButton
+  },
+  methods: {
+    dismissBlock() {
+      const promptBlock = this.$refs.prompt;
+      promptBlock.classList.add("prompt--block-dismiss");
+    }
   }
 };
 </script>
@@ -32,6 +43,7 @@ export default {
 .prompt {
   border-radius: 6px !important;
   display: block;
+  transition: 0.5s ease-in-out;
 }
 .prompt--bg {
   background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 50%, #fff),
@@ -39,7 +51,6 @@ export default {
   width: 100%;
 }
 .prompt--innerbg {
-  /* height: 175px; */
   background-image: url("https://github.githubassets.com/images/modules/site/site-signup-prompt.png");
   background-position: center 30%;
   background-size: 100% auto;
@@ -73,8 +84,11 @@ export default {
 .prompt__paragraph {
   width: 66.6%;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
   margin-right: auto;
   margin-left: auto;
+}
+.prompt--block-dismiss {
+  display: none;
 }
 </style>

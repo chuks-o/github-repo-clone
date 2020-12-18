@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <mobile-navbar />
     <div id="nav">
       <top-header />
     </div>
@@ -11,9 +12,11 @@
 
 <script>
 import TopHeader from "@/components/topnav/TopHeader.vue";
+import MobileNavbar from "./components/topnav/MobileNavbar.vue";
 export default {
   components: {
-    TopHeader
+    TopHeader,
+    MobileNavbar
   }
 };
 </script>
