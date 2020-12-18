@@ -99,7 +99,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .menu__dropdown {
   position: fixed;
   display: block;

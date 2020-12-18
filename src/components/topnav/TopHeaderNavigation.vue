@@ -217,7 +217,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 nav.header__nav {
   margin: 0;
   padding: 0;
